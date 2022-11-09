@@ -14,7 +14,7 @@ function App() {
       </h1>
 
       {allFoods.map((food) => {
-        return <FoodBox food={food} />;
+        return <FoodBox food={food} allFoods={allFoods} setFoods={setFoods} />;
       })}
     </div>
   );

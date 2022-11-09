@@ -1,7 +1,15 @@
 import { Card, Col, Button } from 'antd';
 
-function FoodBox({ food }) {
+function FoodBox({ food, allFoods, setFoods }) {
   //console.log(food, 'food');
+  function handleDelete(chave) {
+    let filteredFoods = allFoods.filter((cadaFood) => {
+      return cadaFood !== chave;
+    });
+    /* só o que vai ENTRAR pra array filtrada é TUDO OQUE FOR DIFERENTE DO BOTÃO QUE EU CLIQUEI */
+
+    setFoods(filteredFoods);
+  }
   return (
     <Col>
       <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
@@ -11,7 +19,7 @@ function FoodBox({ food }) {
         <p>
           <b>Total Calories: {food.calories * food.servings} </b> kcal
         </p>
-        <Button type="primary"> Delete </Button>
+        <Button onClick={() => handleDelete(food)}> Delete </Button>
       </Card>
     </Col>
   );
