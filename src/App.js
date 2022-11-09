@@ -12,10 +12,13 @@ function App() {
       <h1>
         Food List <hr />
       </h1>
-
-      {allFoods.map((food) => {
-        return <FoodBox food={food} allFoods={allFoods} setFoods={setFoods} />;
-      })}
+      <section className="listagem">
+        {allFoods.map((food) => {
+          return (
+            <FoodBox food={food} allFoods={allFoods} setFoods={setFoods} />
+          );
+        })}
+      </section>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Divider, Input } from 'antd';
+import { Divider, Input, Button } from 'antd';
 import { useState } from 'react';
 
 function AddFoodForm({ allFoods, setFoods }) {
@@ -27,48 +27,73 @@ function AddFoodForm({ allFoods, setFoods }) {
     });
   }
 
-  return (
-    <form>
-      <Divider>Add Food Entry</Divider>
+  function handleShowForm() {
+    if (mostraForm) {
+      setMostra(false);
+    } else {
+      setMostra(true);
+    }
+  }
+  const [mostraForm, setMostra] = useState(true);
+  if (mostraForm) {
+    return (
+      <div>
+        <form>
+          <Divider>Add Food Entry</Divider>
 
-      <label>Name</label>
-      <Input
-        name="name"
-        value={form.name}
-        type="text"
-        onChange={handleChange}
-      />
+          <label>Name</label>
+          <Input
+            name="name"
+            value={form.name}
+            type="text"
+            onChange={handleChange}
+          />
 
-      <label>Image</label>
-      {/* render antd <Input /> type="text" here */}
-      <Input
-        name="image"
-        value={form.image}
-        type="text"
-        onChange={handleChange}
-      />
+          <label>Image</label>
+          {/* render antd <Input /> type="text" here */}
+          <Input
+            name="image"
+            value={form.image}
+            type="text"
+            onChange={handleChange}
+          />
 
-      <label>Calories</label>
-      {/* render antd <Input /> type="number" here */}
-      <Input
-        name="calories"
-        value={form.calories}
-        type="number"
-        onChange={handleChange}
-      />
+          <label>Calories</label>
+          {/* render antd <Input /> type="number" here */}
+          <Input
+            name="calories"
+            value={form.calories}
+            type="number"
+            onChange={handleChange}
+          />
 
-      <label>Servings</label>
-      {/* render antd <Input /> type="number" here */}
-      <Input
-        name="servings"
-        value={form.servings}
-        type="number"
-        onChange={handleChange}
-      />
+          <label>Servings</label>
+          {/* render antd <Input /> type="number" here */}
+          <Input
+            name="servings"
+            value={form.servings}
+            type="number"
+            onChange={handleChange}
+          />
 
-      <button onClick={handleSubmit}>Create</button>
-    </form>
-  );
+          <button onClick={handleSubmit} className="botoes">
+            Create
+          </button>
+        </form>
+        <Button type="primary" onClick={handleShowForm} className="botoes">
+          {' '}
+          hide form{' '}
+        </Button>
+      </div>
+    );
+  } else {
+    return (
+      <Button type="primary" onClick={handleShowForm} className="botoes">
+        {' '}
+        show form{' '}
+      </Button>
+    );
+  }
 }
 
 export default AddFoodForm;

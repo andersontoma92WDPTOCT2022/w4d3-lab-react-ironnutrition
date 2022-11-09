@@ -1,4 +1,5 @@
 import { Card, Col, Button } from 'antd';
+import { useState } from 'react';
 
 function FoodBox({ food, allFoods, setFoods }) {
   //console.log(food, 'food');
@@ -10,6 +11,7 @@ function FoodBox({ food, allFoods, setFoods }) {
 
     setFoods(filteredFoods);
   }
+
   return (
     <Col>
       <Card title={food.name} style={{ width: 230, height: 300, margin: 10 }}>
@@ -19,7 +21,7 @@ function FoodBox({ food, allFoods, setFoods }) {
         <p>
           <b>Total Calories: {food.calories * food.servings} </b> kcal
         </p>
-        <Button onClick={() => handleDelete(food)}> Delete </Button>
+        <Button onClick={() => handleDelete(food)}> DElete </Button>
       </Card>
     </Col>
   );
