@@ -38,7 +38,7 @@ function AddFoodForm({ allFoods, setFoods }) {
   if (mostraForm) {
     return (
       <div>
-        <form>
+        <form className="formulario">
           <Divider>Add Food Entry</Divider>
 
           <label>Name</label>

@@ -45,3 +45,10 @@
 .botoes {
   margin: 20px 20px;
 }
+.formulario {
+  width: 60%;
+}
+.search {
+  width: 100px;
+  background-color: blanchedalmond;
+}
